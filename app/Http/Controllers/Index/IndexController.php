@@ -12,6 +12,7 @@ use AlibabaCloud\Client\Exception\ClientException;
 use AlibabaCloud\Client\Exception\ServerException;
 use App\Goods;
 use App\Admin;
+use App\Brand;
 
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Redis;
@@ -20,13 +21,13 @@ class IndexController extends Controller
     //前台首页
     public function index()
     {
-        $aa=Cache::get('aa');
-
-        if(!$aa){
-
-            $aa=Goods::all();
-            Cache::put('aa',$aa,60*60*24);
-        }
+        // Cache::flush();
+        // $aa=Cache::get('aa');
+        // if(!$aa){
+            $aa=Goods::leftjoin('brand','goods.b_id','=','brand.b_id')->get();
+            // dd($aa);
+            // Cache::put('aa',$aa,60*60*24);
+        // }
         return view('index/index',['aa'=>$aa]);
         //第一种获取
         // echo request()->cookie('name');die;

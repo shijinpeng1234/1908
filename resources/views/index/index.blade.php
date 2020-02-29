@@ -34,13 +34,14 @@
       <img src="/static/index/images/image4.jpg" />
       <img src="/static/index/images/image5.jpg" />
      </div><!--sliderA/-->
+
      <ul class="pronav">
-      <li><a href="{{url('/prolist')}}">晋恩干红</a></li>
-      <li><a href="{{url('/prolist')}}">万能手链</a></li>
-      <li><a href="{{url('/prolist')}}">高级手镯</a></li>
-      <li><a href="{{url('/prolist')}}">特异戒指</a></li>
+        @foreach($aa as $k=>$v)
+      <li><a href="{{url('/prolist')}}">{{$v->b_name}}</a></li>
+        @endforeach
       <div class="clearfix"></div>
      </ul><!--pronav/-->
+
      <div class="index-pro1">
       @foreach($aa as $k=>$v)
       <div class="index-pro1-list">
