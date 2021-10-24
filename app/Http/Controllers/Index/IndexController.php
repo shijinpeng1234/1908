@@ -143,6 +143,6 @@ class IndexController extends Controller
     //商品列表
     public function prolist()
     {
-
+        phpinfo();
     }
 }
